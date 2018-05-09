@@ -5,16 +5,14 @@ import edu.logos.homewrk.service.PollService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/poll")
+@SessionAttributes("pollDetailModel")
 public class PollController {
 
     @Autowired private PollService pollService;
@@ -33,7 +31,7 @@ public class PollController {
     @PostMapping("/new-poll")
     public String savePollForm(@ModelAttribute("pollModel") Poll poll) {
         pollService.savePoll(poll);
-        return "redirect:/poll/poll-list";
+            return "redirect:/poll/poll-list";
     }
 
     @GetMapping("/new-poll")
@@ -113,5 +111,12 @@ public class PollController {
         model.addAttribute("technologyListModel", technologyList);
 
         return "poll/new-poll-form";
+    }
+
+    @GetMapping("poll/detail/{pollID}")
+    public String showDetailPollByID(Model model, @PathVariable("pollID") int id) {
+        Poll poll = pollService.findPollById(id);
+        model.addAttribute("pollDetailModel", poll);
+        return "poll/detail";
     }
 }

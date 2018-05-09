@@ -22,4 +22,9 @@ public class PollServiceImpl  implements PollService {
     public List<Poll> findAllPolls() {
         return pollRepository.findAll();
     }
+
+    @Override
+    public Poll findPollById(int id) {
+        return pollRepository.getOne(id);
+    }
 }

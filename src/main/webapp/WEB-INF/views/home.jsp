@@ -14,6 +14,7 @@
 </head>
 <body>
 <a href="${rootURL}/poll/new-poll">New poll</a>
+<a href="${rootURL}/poll/poll-list">Poll list</a>
 
 </body>
 </html>

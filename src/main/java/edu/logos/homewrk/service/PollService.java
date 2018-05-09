@@ -8,5 +8,7 @@ public interface PollService {
 
     void savePoll(Poll poll);
 
+    Poll findPollById(int id);
+
     List<Poll> findAllPolls();
 }
