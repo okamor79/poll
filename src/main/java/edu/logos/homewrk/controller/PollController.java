@@ -113,8 +113,8 @@ public class PollController {
         return "poll/new-poll-form";
     }
 
-    @GetMapping("poll/detail/{pollID}")
-    public String showDetailPollByID(Model model, @PathVariable("pollID") int id) {
+    @GetMapping("/detail/{id}")
+    public String showDetailPollByID(@PathVariable("id") int id, Model model) {
         Poll poll = pollService.findPollById(id);
         model.addAttribute("pollDetailModel", poll);
         return "poll/detail";

@@ -20,11 +20,7 @@
 </head>
 <body>
 
-
 <div class="container">
-
-
-
     <h2 class="text-center">Форма опитування</h2>
     <form:form
             action="${rootURL}/poll/new-poll"
@@ -34,48 +30,40 @@
             <label class="control-label col-md-3" for="fullName">Повне ім'я</label>
             <form:input path="fullName" class="form-control  col-md-9" id="fullName"/>
         </div>
-
         <div class="form-group row">
             <label class="control-label col-md-3" for="age">Вік</label>
             <form:input type="number" path="age" class="form-control col-md-5"/>
         </div>
-
         <div class="form-group row">
             <label for="country" class="col-md-3 control-label">Країна проживання</label>
             <form:select path="country" class="form-control col-md-3">
                 <form:options items="${countryListModel}"/>
             </form:select>
         </div>
-
         <div class="form-group row">
             <label for="gender" class="col-md-3 control-label">Стать</label>
             <form:radiobutton path="gender" value="MALE" class="form-control col-md-1"/>Чол.
             <form:radiobutton path="gender" value="FEMALE" class="form-control col-md-1"/>Жін.
             <form:radiobutton path="gender" value="UNKNOWN" class="form-control col-md-1"/>N/A
         </div>
-
         <div class="form-group row">
             <form:label path="email" class="col-md-3 control-label">Адрес ел.пошти</form:label>
             <form:input type="email" path="email" class="form-control col-md-6"/>
         </div>
-
         <div class="form-group row">
             <form:label path="education" class="col-md-3 control-label">Освіта</form:label>
             <form:select path="education" class="form-control col-md-4">
                 <form:options items="${studyListModel}"/>
             </form:select>
         </div>
-
-        <div class="form-group form-check-inline">
-            <form:label path="socialNetwork">Якими соц.мережаи корисутєтесь</form:label>
-            <form:checkboxes path="socialNetwork" items="${socialNetworkModel}" class="form-control form-check-input"/>
+        <div class="form-group row">
+            <form:label path="socialNetwork" class="col-md-3 control-label">Якими соц.мережаи корисутєтесь</form:label>
+            <form:checkboxes path="socialNetwork" items="${socialNetworkModel}" class="col-md-7 form-control"/>
         </div>
-
         <div class="form-group">
             <form:label path="progLang">Улюблена мова програмування</form:label>
             <form:radiobuttons path="progLang" items="${progLangModel}" class="form-control"/>
         </div>
-
         <form:label path="operSystem">Якими ОС користуєтесь</form:label>
         <form:checkbox path="operSystem" value="Windows"/>Windows
         <form:checkbox path="operSystem" value="Linux"/>Linux
